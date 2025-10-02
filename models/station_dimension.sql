@@ -6,7 +6,8 @@ WITH CTE AS (
     start_lat as station_lat,
     start_lng as start_station_lng
     from
-    {{ source('demo', 'bike') }}
+   -- {{ source('demo', 'bike') }}
+   {{ ref('stg_bike') }}
     where ride_id != 'ride_id'
 
 )
